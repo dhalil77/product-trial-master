@@ -1,0 +1,16 @@
+FROM python:3.10-slim
+
+WORKDIR /app
+
+# Mettre à jour les paquets et installer les dépendances nécessaires
+COPY . .
+
+RUN pip install --no-cache-dir --upgrade pip && \
+    pip install --no-cache-dir -r requirements.txt
+
+WORKDIR /app
+
+EXPOSE 8000
+
+# Commande pour démarrer l'application
+CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"] 

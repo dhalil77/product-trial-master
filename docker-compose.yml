@@ -1,0 +1,19 @@
+services:
+  backend:
+    build:
+      context: ./back/e_commerce
+      dockerfile: Dockerfile.dev
+    volumes:
+      - ./back/e_commerce:/app 
+    ports:
+      - 8000:8000
+
+
+  # frontend:
+  #   build:
+  #     context: ./front/
+  #     dockerfile: Dockerfile
+  #   depends_on:
+  #     - backend
+  #   ports:
+  #     - 8080:80
